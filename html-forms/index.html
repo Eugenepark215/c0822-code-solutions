@@ -6,27 +6,29 @@
 <body>
   <h1>Coding Form!</h1>
   <form>
-    <p>Email</br>
+    <div>
+      <p>Email</p>
       <input type="text" name="email" size="22" maxlength="30"/>
-    </p>
-    <p>Why is coding cool?</br>
+    </div>
+    <div>
+      <p>Why is coding cool?</p>
       <select name="reasons">
         <option value="Because it's interesting">Because it's interesting</option>
         <option value="Beacause it's fun">Because it's fun</option>
         <option value="Because it's powerful">Because it's powerful</option>
       </select>
-    </p>
+    </div>
     <p>Favorite Langauge (choose one)</p>
     <input type="radio" name="language" value="HTML"/>HTML
     <input type="radio" name="language" value="CSS"/>CSS
     <input type="radio" name="language" value="JavaScript"/>JavaScript
     <p>Would you like more information?</p>
-    <p>
-      <input type="checkbox" name="information" value="Sign me up!"/>Sign me up!</br>
-      Comments</br>
-      <textarea name="comments" cols="35" rows="8"></textarea></br>
+    <input type="checkbox" name="information" value="Sign me up!" />Sign me up!
+    <p>Comments</p>
+    <textarea name="comments" cols="35" rows="8"></textarea>
+    <div>
       <input type="submit" value="Submit" />
-    </p>
+    </div>
 
   </form>
 </body>
