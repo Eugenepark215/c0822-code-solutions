@@ -46,6 +46,6 @@ button {
   margin-left: 0.25rem;
   border: none;
   font-weight: 500;
-  text-decoration-color: white;
+  color: white;
   background-color: rgb(79 186 82);
 }
