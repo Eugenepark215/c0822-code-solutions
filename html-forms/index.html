@@ -6,41 +6,48 @@
 <body>
   <h1>Coding Form!</h1>
   <form>
-    <label for="email">Email</label>
     <div>
-      <input type="text" name="email" size="21" maxlength="30"/><label for="email"></label>
+      <label for="email">Email</label>
+      <div>
+        <input id="email" type="text" name="email" size="21" maxlength="30" />
+      </div>
     </div>
-    <label for="why">Why is coding cool?</label>
     <div>
-      <select name="reasons">
-        <option value="Select and option">Select an option</option>
-        <option value="Because it's interesting">Because it's interesting</option>
-        <option value="Beacause it's fun">Because it's fun</option>
-        <option value="Because it's powerful">Because it's powerful</option>
-      </select>
+      <label for="why">Why is coding cool?</label>
+      <div>
+        <select name="option" id="option">
+          <option value="Select and option">Select an option</option>
+          <option value="Because it's interesting">Because it's interesting</option>
+          <option value="Beacause it's fun">Because it's fun</option>
+          <option value="Because it's powerful">Because it's powerful</option>
+        </select>
+      </div>
+    </div>
+    <div>
+      <p>
+        <label for="language" id="language">Favorite Langauge (choose one)</label>
+      </p>
+      <div>
+        <input type="radio" name="language" value="HTML"/><label for="HTML">HTML</label>
+        <input type="radio" name="language" value="CSS"/><label for="CSS">CSS</label>
+        <input type="radio" name="language" value="JavaScript"/><label for="JavaScript">JavaScript</label>
+      </div>
     </div>
     <p>
-      <label for="language">Favorite Langauge (choose one)</label>
+      <label for="information" id="information">Would you like more information?</label>
     </p>
     <div>
-      <input type="radio" name="language" value="HTML"/><label for="HTML">HTML</label>
-      <input type="radio" name="language" value="CSS"/><label for="CSS">CSS</label>
-      <input type="radio" name="language" value="JavaScript"/><label for="JavaScript">JavaScript</label>
-    </div>
-    <p>
-      <label for="information">Would you like more information?</label>
-    </p>
-    <div>
-      <input type="checkbox" name="information"/><label for="signmeup">Sign me up!</label>
-    </div>
-    <label for="comments">Comments</label>
-    <div>
-      <textarea name="comments" cols="35" rows="8"></textarea>
+      <input type="checkbox" name="information" id="signmeup"/><label for="signmeup">Sign me up!</label>
     </div>
     <div>
-      <input type="submit" value="Submit" /><label for="submit"></label>
+      <label for="comments" id="comments">Comments</label>
+      <div>
+        <textarea name="comments" cols="35" rows="8"></textarea>
+      </div>
     </div>
-
+    <div>
+      <input id="submit" type="submit" value="Submit" /><label for="submit"></label>
+    </div>
   </form>
 </body>
 </html>
