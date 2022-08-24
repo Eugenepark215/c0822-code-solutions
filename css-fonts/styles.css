@@ -1,7 +1,10 @@
-body, h1 {
+body {
   font-family: 'Silkscreen', cursive;
 }
 
 body {
   line-height: 20px;
 }
+ h1, h2 {
+   font-family: 'DynaPuff', cursive;
+ }
