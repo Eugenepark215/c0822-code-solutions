@@ -6,3 +6,18 @@
   max-width: 1000px;
   margin: 0 auto;
 }
+
+.title {
+  text-align: center;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.row {
+  display: flex;
+  flex-basis: calc(100%/2);
+}
+
+.column {
+  display: flex;
+}
