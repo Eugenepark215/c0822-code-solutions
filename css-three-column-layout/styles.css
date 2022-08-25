@@ -11,7 +11,6 @@ body {
 .container {
   max-width: 1000px;
   margin: 0 auto;
-  display: flex;
   font-family: Helvetica, sans-serif;
 }
 
@@ -25,8 +24,10 @@ h1 {
   font-weight: lighter;
 }
 
-.column {
+.row {
   background-color: none;
+  display: flex;
+  flex-basis: calc(100%/3);
 }
 
 section {
@@ -37,15 +38,15 @@ section {
   margin-left: 26%;
 }
 
-.row {
+.column {
   display: flex;
   flex-direction: column;
   text-align: center;
 }
 
-.row-text {
-  margin-left: 3%;
-  margin-right: 3%;
+p {
+  margin-left: 9%;
+  margin-right: 9%;
   text-align: center;
   color: lightgray;
 }
