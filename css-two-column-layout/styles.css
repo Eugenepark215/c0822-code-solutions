@@ -15,9 +15,9 @@
 
 .row {
   display: flex;
-  flex-basis: calc(100%/2);
 }
 
 .column {
   display: flex;
+  flex-direction: column;
 }
