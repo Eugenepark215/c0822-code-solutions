@@ -22,6 +22,7 @@ select {
   margin-bottom: 13px;
   padding-right: 50%;
   width: 100%;
+  border: solid 1px gray;
 }
 
 select {
@@ -49,6 +50,7 @@ button {
   font-family: "Brandon Grotesque", sans-serif;
   font-weight: 500;
   margin-left: 82%;
+  border: none;
 }
 
 [placeholder] {
