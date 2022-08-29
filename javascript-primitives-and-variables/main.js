@@ -1,10 +1,6 @@
-var fullName;
-var isCool;
-var totalPets;
-
-fullName = 'Eugene Park';
-isCool = true;
-totalPets = 1;
+var fullName = 'Eugene Park';
+var isCool = true;
+var totalPets = 1;
 
 console.log('value of fullName', fullName);
 console.log('value of isCool', isCool);
@@ -13,8 +9,7 @@ console.log('typeof fullName', typeof fullName);
 console.log('typeof is Cool', typeof isCool);
 console.log('typeof totalPets', typeof totalPets);
 
-var unknown;
-unknown = null;
+var unknown = null;
 console.log('value of unknown', unknown);
 console.log('typeof unknown', typeof unknown);
 
