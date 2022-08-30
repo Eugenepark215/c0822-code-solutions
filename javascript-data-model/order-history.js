@@ -5,14 +5,16 @@ var orderHistory = [
     orderDelivered: '8/8/2020',
     shipTo: 'JS Masher',
     total: 34.00,
-    items: {
-      itemType: 'book',
-      itemImage: 'link-to-image',
-      itemName: 'JavaScript for impatient programmers',
-      author: 'Rauschmayer, Dr. Azel',
-      returnWindow: '9/7/2020',
-      itemPrice: 31.55
-    }
+    items: [
+      {
+        itemType: 'book',
+        itemImage: 'link-to-image',
+        itemName: 'JavaScript for impatient programmers',
+        author: 'Rauschmayer, Dr. Azel',
+        returnWindow: '9/7/2020',
+        itemPrice: 31.55
+      }
+    ]
   },
   {
     orderNumber: '113-9984268-1280257',
@@ -20,14 +22,16 @@ var orderHistory = [
     orderDelivered: '7/20/2020',
     shipTo: 'JS Masher',
     total: 44.53,
-    items: {
-      itemType: 'book',
-      itemImage: 'link-to-image',
-      itemName: 'The Timeless Way of Building',
-      author: 'Alexander, Christopher',
-      returnWindow: '8/19/2020',
-      itemPrice: 41.33
-    }
+    items: [
+      {
+        itemType: 'book',
+        itemImage: 'link-to-image',
+        itemName: 'The Timeless Way of Building',
+        author: 'Alexander, Christopher',
+        returnWindow: '8/19/2020',
+        itemPrice: 41.33
+      }
+    ]
   },
   {
     orderNumber: '114-287557-9059409',
