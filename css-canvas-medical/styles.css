@@ -47,18 +47,23 @@
   margin-top: -5px;
 }
 
-.row .column-full {
+.rowtwo {
+  display: flex;
+  width: 0 auto;
+}
+
+.rowtwo .column-full {
   position: relative;
   top: 100px;
   margin: 0 auto;
 }
 
-.row .column-full > img {
+.rowtwo .column-full > img {
   width: 1800px;
   height: auto;
 }
 
-.row .column-full > h1 {
+.rowtwo .column-full > h1 {
   position: absolute;
   top: 15%;
   left: 8%;
@@ -71,7 +76,7 @@
   line-height: 75px;
 }
 
-.row .column-full > p {
+.rowtwo .column-full > p {
   position: absolute;
   top: 35%;
   left: 8%;
@@ -83,7 +88,7 @@
   line-height: 45px;
 }
 
-.row .column-full > button {
+.rowtwo .column-full > button {
   position: absolute;
   left: 8%;
   bottom: 15%;
