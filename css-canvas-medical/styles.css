@@ -14,6 +14,7 @@
   margin-left: 6%;
   margin-top: 3%;
   display: flex;
+  border-bottom: solid 3px rgb(234 236 239);
 }
 
 .row .column-one-fifth {
@@ -46,23 +47,18 @@
   margin-top: -5px;
 }
 
-.rowtwo {
-  display: flex;
-  width: 0 auto;
-}
-
-.rowtwo .column-full {
+.row .column-full {
   position: relative;
   top: 100px;
   margin: 0 auto;
 }
 
-.rowtwo .column-full > img {
+.row .column-full > img {
   width: 1800px;
   height: auto;
 }
 
-.rowtwo .column-full > h1 {
+.row .column-full > h1 {
   position: absolute;
   top: 15%;
   left: 8%;
@@ -75,7 +71,7 @@
   line-height: 75px;
 }
 
-.rowtwo .column-full > p {
+.row .column-full > p {
   position: absolute;
   top: 35%;
   left: 8%;
@@ -87,7 +83,7 @@
   line-height: 45px;
 }
 
-.rowtwo .column-full > button {
+.row .column-full > button {
   position: absolute;
   left: 8%;
   bottom: 15%;
