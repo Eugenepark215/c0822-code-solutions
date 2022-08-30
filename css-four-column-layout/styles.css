@@ -1,0 +1,28 @@
+.container {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 2500px;
+  background-color: rgb(247 248 250);
+}
+
+.row {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-family: Barlow, sans-serif;
+}
+
+.column-one-fourth {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.column-one-tenth > img {
+  width: 30%;
+}
+
+.column-one-tenth > p {
+  font-size: medium;
+  font-weight: lighter;
+}
