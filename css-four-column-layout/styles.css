@@ -1,28 +1,40 @@
 .container {
   box-sizing: border-box;
   margin: 0 auto;
-  max-width: 2500px;
-  background-color: rgb(247 248 250);
 }
 
 .row {
   display: flex;
+}
+
+.column-full {
+  margin: 0 auto;
   text-align: center;
   justify-content: center;
   font-family: Barlow, sans-serif;
+  background-color: rgb(247 248 250);
+  flex-basis: 100%;
 }
 
 .column-one-fourth {
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   text-align: center;
+  flex-basis: calc(100%/4);
+  background-color: rgb(247 248 250);
 }
 
 .column-one-tenth > img {
   width: 30%;
 }
 
+.column-one-tenth > h2 {
+  font-family: Barlow, sans-serif;
+}
+
 .column-one-tenth > p {
   font-size: medium;
   font-weight: lighter;
+  font-family: Barlow, sans-serif;
 }
