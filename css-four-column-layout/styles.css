@@ -8,21 +8,25 @@
 }
 
 .column-full {
-  margin: 0 auto;
-  text-align: center;
-  justify-content: center;
-  font-family: Barlow, sans-serif;
-  background-color: rgb(247 248 250);
   flex-basis: 100%;
 }
 
 .column-one-fourth {
-  margin: 0 auto;
   display: flex;
-  flex-direction: column;
-  text-align: center;
   flex-basis: calc(100%/4);
+}
+
+.column-full > h1 {
+  justify-content: center;
+  text-align: center;
+  font-family: Barlow, sans-serif;
   background-color: rgb(247 248 250);
+}
+
+.column-one-fourth > img {
+  background-color: rgb(247 248 250);
+  margin: 0 auto;
+  text-align: center;
 }
 
 .column-one-tenth > img {
