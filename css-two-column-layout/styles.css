@@ -11,6 +11,14 @@
   display: flex;
 }
 
+.column-half {
+  flex-basis: calc(200%/3);
+}
+
+.column-one-third {
+  flex-basis: calc(100%/3);
+}
+
 .column-half > p {
   color: gray;
   line-height: 35px;
@@ -20,6 +28,10 @@
 
 .column-half > h4 {
   font-family: Karla, sans-serif;
+}
+
+.column-full {
+  flex-basis: 100%;
 }
 
 .column-full > h1 {
@@ -40,6 +52,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-basis: 100%;
 }
 
 button {
