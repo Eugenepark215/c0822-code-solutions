@@ -11,7 +11,7 @@
   display: flex;
 }
 
-.column-half {
+.column-two-thirds {
   flex-basis: calc(200%/3);
 }
 
@@ -19,14 +19,14 @@
   flex-basis: calc(100%/3);
 }
 
-.column-half > p {
+.column-two-thirds > p {
   color: gray;
   line-height: 35px;
   margin-bottom: 20%;
   font-family: Karla, sans-serif;
 }
 
-.column-half > h4 {
+.column-two-thirds > h4 {
   font-family: Karla, sans-serif;
 }
 
