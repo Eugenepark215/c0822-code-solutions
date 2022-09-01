@@ -9,7 +9,7 @@ function filterOutStrings(values) {
   for (var i = 0; i < values.length; i++) {
     if (typeof values[i] !== typeof 'string') {
       filterOutStringsArray.push(values[i]);
-    } else delete values[i];
+    }
   }
   return filterOutStringsArray;
 }
