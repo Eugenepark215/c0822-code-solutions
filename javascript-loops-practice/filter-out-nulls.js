@@ -7,9 +7,9 @@
 function filterOutNulls(values) {
   var filterOutNullsArray = [];
   for (var i = 0; i < values.length; i++) {
-    if (values[i] === null) {
-      filterOutNullsArray.push();
-    } else filterOutNullsArray.push(values[i]);
+    if (values[i] != null) {
+      filterOutNullsArray.push(values[i]);
+    } else delete values[i];
   }
   return filterOutNullsArray;
 }

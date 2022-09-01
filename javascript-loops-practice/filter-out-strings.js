@@ -7,9 +7,9 @@
 function filterOutStrings(values) {
   var filterOutStringsArray = [];
   for (var i = 0; i < values.length; i++) {
-    if (typeof values[i] === 'string') {
-      filterOutStringsArray.push();
-    } else filterOutStringsArray.push(values[i]);
+    if (typeof values[i] !== typeof 'string') {
+      filterOutStringsArray.push(values[i]);
+    } else delete values[i];
   }
   return filterOutStringsArray;
 }
