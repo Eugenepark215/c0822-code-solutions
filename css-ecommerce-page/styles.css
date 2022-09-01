@@ -9,17 +9,26 @@ body {
 
 .container {
   margin: 0 auto;
-  max-width: 1000px;
+  max-width: 2000px;
+  display: flex;
 }
 
 .row {
   display: flex;
 }
 
-.column-full > h1 {
-  text-align: center;
+.column-full {
+  flex-basis: 100%;
 }
 
 .column-one-fifth {
   flex-basis: calc(100%/5);
+}
+
+.column-one-fifth > h3 {
+  text-align: center;
+}
+
+.column-one-fifth > p {
+  text-align: center;
 }
