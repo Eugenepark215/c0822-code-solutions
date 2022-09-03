@@ -10,11 +10,8 @@
 // no value return empty array
 function getWords(string) {
   var getWordsEmptyArray = [];
-  for (var i = 0; i < string.length; i++) {
-    if (string[i] === ' ') {
-      return string.split(' ');
-    } else if (string.includes(' ') === false) {
-      return [string];
-    }
-  } return getWordsEmptyArray;
+  if (string === '') {
+    return getWordsEmptyArray;
+  }
+  return string.split(' ');
 }
