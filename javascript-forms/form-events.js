@@ -13,12 +13,12 @@ function handleInput(event) {
 }
 
 document.querySelector('#user-name').addEventListener('input', handleFocus);
-document.querySelector('#user-email').addEventListener('input', handleFocus);
-document.querySelector('#user-message').addEventListener('input', handleFocus);
+document.querySelector('#user-email').addEventListener('input', handleBlur);
+document.querySelector('#user-message').addEventListener('input', handleInput);
 
 document.querySelector('#user-name').addEventListener('focus', handleFocus);
-document.querySelector('#user-email').addEventListener('focus', handleFocus);
-document.querySelector('#user-message').addEventListener('focus', handleFocus);
+document.querySelector('#user-email').addEventListener('focus', handleBlur);
+document.querySelector('#user-message').addEventListener('focus', handleInput);
 
 document.querySelector('#user-name').addEventListener('blur', handleFocus);
 document.querySelector('#user-email').addEventListener('blur', handleBlur);
