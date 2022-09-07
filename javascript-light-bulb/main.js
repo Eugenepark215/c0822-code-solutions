@@ -1,5 +1,5 @@
 var click = 0;
-var room = document.querySelector('body');
+var room = document.querySelector('div');
 var lightBulb = document.querySelector('button');
 
 function turnOnOff(event) {
