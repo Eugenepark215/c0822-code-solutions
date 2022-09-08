@@ -4,7 +4,7 @@ var lightBulb = document.querySelector('button');
 
 function turnOnOff(event) {
 
-  if (lightBulb.className === 'lightbulb-off') {
+  if (room === true) {
     lightBulb.className = 'lightbulb-on';
     room.className = 'on';
   } else {
