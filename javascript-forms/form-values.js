@@ -13,4 +13,4 @@ function handleSubmit(event) {
   console.log(messageData);
   contactForm.reset();
 }
-contactForm.addEventlistenr('submit', handleSubmit);
+contactForm.addEventListener('submit', handleSubmit);
