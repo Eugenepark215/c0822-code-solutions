@@ -18,6 +18,7 @@ var arrayJS = [
 
 console.log('arrayJS:', arrayJS);
 console.log('Result of typeof arrayJS:', typeof arrayJS);
+
 var stringifyArrayJS = JSON.stringify(arrayJS);
 console.log('stringifArrayJS:', stringifyArrayJS);
 console.log('Result of typeof JSON.stringify(arrayJS):', typeof stringifyArrayJS);
