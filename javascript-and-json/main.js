@@ -15,9 +15,12 @@ var arrayJS = [
     author: 'Author 3'
   }
 ];
-console.log('arrayJS typeof result:', typeof arrayJS);
+
+console.log('arrayJS:', arrayJS);
+console.log('Result of typeof arrayJS:', typeof arrayJS);
 var stringifyArrayJS = JSON.stringify(arrayJS);
-console.log('typeof JSON.stringify(arrayJS):', typeof stringifyArrayJS);
+console.log('stringifArrayJS:', stringifyArrayJS);
+console.log('Result of typeof JSON.stringify(arrayJS):', typeof stringifyArrayJS);
 
 var jsonString = {
   id: '12345',
@@ -25,7 +28,9 @@ var jsonString = {
 };
 
 var stringifyjsonString = JSON.stringify(jsonString);
-console.log('jsonSting typeof result:', typeof stringifyjsonString);
+console.log('stringifyjsonString:', stringifyjsonString);
+console.log('Result of typeof jsonSting :', typeof stringifyjsonString);
 
 var parsed = JSON.parse(stringifyjsonString);
+console.log('parsed', parsed);
 console.log('Result of typeof JSON.parse(jsonString):', typeof parsed);
