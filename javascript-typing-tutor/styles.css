@@ -1,0 +1,24 @@
+* {
+  white-space: pre;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 50vh;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.correct {
+  color: green;
+}
+
+.incorrect {
+  color: red;
+}
+
+.current {
+  border-bottom: 3px solid;
+}
