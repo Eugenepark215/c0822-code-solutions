@@ -23,15 +23,12 @@ var stringifyArrayJS = JSON.stringify(arrayJS);
 console.log('stringifArrayJS:', stringifyArrayJS);
 console.log('Result of typeof JSON.stringify(arrayJS):', typeof stringifyArrayJS);
 
-var jsonString = {
-  id: '12345',
-  name: 'Cool Guy'
-};
+var jsonString = '{"id": "12345","name": "Cool Guy"}';
 
-var stringifyjsonString = JSON.stringify(jsonString);
-console.log('stringifyjsonString:', stringifyjsonString);
-console.log('Result of typeof jsonSting :', typeof stringifyjsonString);
+console.log('stringifyjsonString:', jsonString);
 
-var parsed = JSON.parse(stringifyjsonString);
-console.log('parsed', parsed);
+console.log('Result of typeof jsonSting :', typeof jsonString);
+
+var parsed = JSON.parse(jsonString);
+console.log('parsed:', parsed);
 console.log('Result of typeof JSON.parse(jsonString):', typeof parsed);
