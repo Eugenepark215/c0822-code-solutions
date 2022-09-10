@@ -2,12 +2,20 @@
 // string parameter
 // first letter is Capitalized and rest is lowercased
 // JavaScript is always JavaScript
-// for loop to go through string
-// capitalize(word[1]) + lowercase(word[i])
-// unshfit for word[1]
-// will check contain()
+// capitalize(word[1]) + lowercase every letter
+// slice for word[1]
+// can lowercase the word and check if it incldue 'javascript'
+// return Javascript if so
+
 function capitalizeWord(word) {
-  for (var i = 0; i < word.length; i++) {
-    word[0].toUpperCase();
+  var capitalizeResult = ' ';
+  var firstLetter = word[0].toUpperCase();
+  var lowerCaseLetters = word.toLowerCase();
+  var currentWord = lowerCaseLetters.slice(1);
+  if (lowerCaseLetters.includes('javascript')) {
+    return 'JavaScript';
+  } else {
+    capitalizeResult = firstLetter + currentWord;
   }
+  return capitalizeResult;
 }
