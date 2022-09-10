@@ -2,13 +2,14 @@
 // firstindex = number index && second index = number
 // string parameter swap the char at given index
 // loop and reassign values of index
+// if i === first or second index reassign value
 function swapChars(firstIndex, secondIndex, string) {
   var swapResult = '';
   for (var i = 0; i < string.length; i++) {
-    if (string[i] === string[firstIndex]) {
+    if (i === firstIndex) {
       string[i] = string[secondIndex];
       swapResult += string[secondIndex];
-    } else if (string[i] === string[secondIndex]) {
+    } else if (i === secondIndex) {
       string[i] = string[firstIndex];
       swapResult += string[firstIndex];
     } else {
