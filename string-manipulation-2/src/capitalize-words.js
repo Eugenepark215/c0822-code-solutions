@@ -4,17 +4,14 @@
 // need to identify where spaces are and capitalize the index after space
 // can lower case all letter first and then captialize index 0 and all indexes after space
 // loop
+// split to identify whitespace make array and at index[0]toUppercase
+// make array into string
 function capitalizeWords(string) {
-  var capitalizeResult = '';
   var lowerCase = string.toLowerCase();
+  lowerCase = lowerCase.split(' ');
   for (var i = 0; i < lowerCase.length; i++) {
-    if (lowerCase.charAt(i) === ' ') {
-      lowerCase[i + 1].toUpperCase();
-      capitalizeResult += lowerCase[i];
-    } else {
-      capitalizeResult += lowerCase[i];
-    }
+    lowerCase[i] = lowerCase[i][0].toUpperCase() + lowerCase[i].substr(1);
   }
-  return capitalizeResult;
+  return lowerCase.join(' ');
 
 }
