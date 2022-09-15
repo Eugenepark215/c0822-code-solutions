@@ -7,10 +7,8 @@ function swapChars(firstIndex, secondIndex, string) {
   var swapResult = '';
   for (var i = 0; i < string.length; i++) {
     if (i === firstIndex) {
-      string[i] = string[secondIndex];
       swapResult += string[secondIndex];
     } else if (i === secondIndex) {
-      string[i] = string[firstIndex];
       swapResult += string[firstIndex];
     } else {
       swapResult += string[i];

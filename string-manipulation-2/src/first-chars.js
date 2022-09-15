@@ -5,10 +5,10 @@
 // if legnth is longer than string.length return string
 function firstChars(length, string) {
   var firstCharsResult = '';
-  for (var i = 0; i < length; i++) {
-    if (length > string.length) {
-      return string;
-    } else {
+  if (length > string.length) {
+    return string;
+  } else {
+    for (var i = 0; i < length; i++) {
       firstCharsResult += string[i];
     }
   }
