@@ -6,12 +6,10 @@
 
 function includes(array, value) {
   var trueOrFalse = false;
-  for (var i = 0; i < array.length; i++) {
-    if (array.indexOf(value) !== -1) {
-      trueOrFalse = true;
-    } else {
-      trueOrFalse = false;
-    }
+  if (array.indexOf(value) !== -1) {
+    trueOrFalse = true;
+  } else {
+    trueOrFalse = false;
   }
   return trueOrFalse;
 }

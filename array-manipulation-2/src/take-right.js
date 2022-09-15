@@ -7,14 +7,12 @@
 // if count is larger than array return array
 function takeRight(array, count) {
   var takeRightArray = [];
-  for (var i = (array.length - count); i < array.length; i++) {
-    if (array.length === 0) {
-      return [];
-    } else if (count > array.length) {
-      return array;
-    } else {
+  if (count > array.length) {
+    return array;
+  } else {
+    for (var i = (array.length - count); i < array.length; i++) {
       takeRightArray.push(array[i]);
     }
+    return takeRightArray;
   }
-  return takeRightArray;
 }

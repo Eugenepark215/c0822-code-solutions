@@ -5,11 +5,7 @@
 function drop(array, count) {
   var dropArray = [];
   for (var i = count; i < array.length; i++) {
-    if (array.length === 0) {
-      return [];
-    } else {
-      dropArray.push(array[i]);
-    }
+    dropArray.push(array[i]);
   }
   return dropArray;
 }

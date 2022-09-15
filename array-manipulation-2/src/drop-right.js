@@ -7,11 +7,7 @@
 function dropRight(array, count) {
   var dropRightArray = [];
   for (var i = 0; i < (array.length - count); i++) {
-    if (array.length === 0) {
-      return [];
-    } else {
-      dropRightArray.push(array[i]);
-    }
+    dropRightArray.push(array[i]);
   }
   return dropRightArray;
 }

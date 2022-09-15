@@ -7,8 +7,8 @@
 function take(array, count) {
   var takeArray = [];
   for (var i = 0; i < count; i++) {
-    if (array.length === 0) {
-      return [];
+    if (count > array.length) {
+      return array;
     } else {
       takeArray.push(array[i]);
     }
