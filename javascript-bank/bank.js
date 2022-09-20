@@ -20,12 +20,12 @@ Bank.prototype.getAccount = function (number) {
   for (var j = 0; j < this.accounts.length; j++) {
     if (this.accounts[j].number === number) {
       return this.accounts[j];
-    // } else {
-    //   return null;
     }
   }
 };
 
-Bank.prototype.getTotalAssests = function (number) {
-
-};
+// Bank.prototype.getTotalAssests = function (number) {
+//   if (this.accounts.length === 0 || this.accounts === undefined) {
+//     return 0;
+//   }
+// };
