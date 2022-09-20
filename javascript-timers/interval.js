@@ -7,4 +7,4 @@ function h1toCountDown() {
   }
 }
 
-var interval = setInterval(h1toCountDown, 1000);
+var interval = setInterval(h1toCountDown, 2000);
