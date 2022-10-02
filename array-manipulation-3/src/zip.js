@@ -2,21 +2,22 @@
 // first & second are array parameters
 // given the values at the postion pair the two values into an array
 // push that array into new array
-// if there are no pair push into array by itself
+// if there are no pair do not push
+// need to check for the greater length between the 2 strings
+// loop length will be dictatec by shorter string
 function zip(first, second) {
   var newArray = [];
-  var newArrayArray = [];
   if (first.length > second.length) {
     for (var i = 0; i < second.length; i++) {
-      newArrayArray.push(first[i]);
-      newArrayArray.push(second[i]);
-      newArray.push(newArrayArray);
+      newArray.push([first[i], second[i]]);
     }
-  } if (first.length < second.length) {
+  } else if (first.length < second.length) {
     for (i = 0; i < first.length; i++) {
-      newArrayArray.push(first[i]);
-      newArrayArray.push(second[i]);
-      newArray.push(newArrayArray);
+      newArray.push([first[i], second[i]]);
+    }
+  } else {
+    for (i = 0; i < first.length; i++) {
+      newArray.push([first[i], second[i]]);
     }
   }
   return newArray;
