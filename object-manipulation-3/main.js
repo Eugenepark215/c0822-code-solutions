@@ -33,15 +33,16 @@ console.log('Lodash is loaded:', typeof _ !== 'undefined');
 //   }
 // ];
 
-// function createDeck() {
-//   var deck = [];
+// function createCardDeck() {
+//   var suit = ['clubs', 'diamonds', 'hearts', 'spades'];
+//   var rank = ['Ace', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King'];
 //   var card = {};
-//   for (var i = 0; i <= 52; i++) {
-//     if (i === 0) {
-//       card.suit = 'clubs';
-//       card.rank = 'Ace';
-//       deck.push(card);
-//     }
+//   var deck = [];
+//   for (var i = 0; i < rank.length; i++) {
+//     card.rank = rank[i];
+//     for (var j = 0; j < suit.length; j++) {
+//       card.suit = suit[j];
+//     }deck.push(card);
 //   }
 //   return deck;
 // }
