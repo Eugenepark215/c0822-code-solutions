@@ -14,35 +14,31 @@ console.log('Lodash is loaded:', typeof _ !== 'undefined');
 // if player is assigned a card remove obejct from 52 object
 // access player hand property and add value
 
-// var players = [
-//   {
-//     name: 'One',
-//     hand: ''
-//   },
-//   {
-//     name: 'Two',
-//     hand: ''
-//   },
-//   {
-//     name: 'Three',
-//     hand: ''
-//   },
-//   {
-//     name: 'Four',
-//     hand: ''
+// function createPlayers() {
+//   var playerNames = ['One', 'Two', 'Three', 'Four'];
+//   var arrayOfPlayers = [];
+//   for (var i = 0; i < playerNames.length; i++) {
+//     var player = {
+//       playerNames: playerNames[i],
+//       hands: ''
+//     };
+//     arrayOfPlayers.push(player);
 //   }
-// ];
+//   return arrayOfPlayers;
+// }
 
 // function createCardDeck() {
 //   var suit = ['clubs', 'diamonds', 'hearts', 'spades'];
 //   var rank = ['Ace', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King'];
-//   var card = {};
 //   var deck = [];
-//   for (var i = 0; i < rank.length; i++) {
-//     card.rank = rank[i];
-//     for (var j = 0; j < suit.length; j++) {
-//       card.suit = suit[j];
-//     }deck.push(card);
+//   for (var i = 0; i < suit.length; i++) {
+//     for (var j = 0; j < rank.length; j++) {
+//       var card = {
+//         rank: rank[j],
+//         suit: suit[i]
+//       };
+//       deck.push(card);
+//     }
 //   }
 //   return deck;
 // }
