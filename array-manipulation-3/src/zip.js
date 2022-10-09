@@ -4,21 +4,12 @@
 // push that array into new array
 // if there are no pair do not push
 // need to check for the greater length between the 2 strings
-// loop length will be dictatec by shorter string
+// math.min to fine shorter length of first and second string set in variable
 function zip(first, second) {
   var newArray = [];
-  if (first.length > second.length) {
-    for (var i = 0; i < second.length; i++) {
-      newArray.push([first[i], second[i]]);
-    }
-  } else if (first.length < second.length) {
-    for (i = 0; i < first.length; i++) {
-      newArray.push([first[i], second[i]]);
-    }
-  } else {
-    for (i = 0; i < first.length; i++) {
-      newArray.push([first[i], second[i]]);
-    }
+  var shorterLength = Math.min(first.length, second.length);
+  for (var i = 0; i < shorterLength; i++) {
+    newArray.push([first[i], second[i]]);
   }
   return newArray;
 }
