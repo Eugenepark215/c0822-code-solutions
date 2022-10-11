@@ -57,3 +57,11 @@ button:hover {
 .first {
   background-color: black;
 }
+
+image {
+  width: 100%;
+}
+
+.display-flex {
+  display: flex;
+}
