@@ -1,5 +1,5 @@
 var interval = setInterval(carousel, 3000);
-// var buttonRow = document.querySelector('.row justify-center space-between');
+var buttonRow = document.querySelector('.row justify-center space-between');
 var images = document.querySelector('img');
 var buttonAll = document.querySelectorAll('button');
 var buttonFirst = document.querySelector('.first');
@@ -12,9 +12,9 @@ var chevronLeft = document.querySelector('#chevron-left');
 var chevronRight = document.querySelector('#chevron-right');
 var currentIndex = 0;
 
-// buttonRow.addEventListener('click', function() {
-//   if()
-// })
+buttonRow.addEventListener('click', function () {
+
+});
 
 buttonFirst.addEventListener('click', function () {
   showIndex(0);
