@@ -1,39 +1,24 @@
 var interval = setInterval(carousel, 3000);
-var buttonRow = document.querySelector('.row justify-center space-between');
+var buttonRow = document.querySelector('#buttonRow');
 var images = document.querySelector('img');
 var buttonAll = document.querySelectorAll('button');
-var buttonFirst = document.querySelector('.first');
-var buttonSecond = document.querySelector('.second');
-var buttonThird = document.querySelector('.third');
-var buttonFourth = document.querySelector('.fourth');
-var buttonFifth = document.querySelector('.fifth');
 var imagesArray = ['http://localhost:5500/javascript-carousel/images/001.png', 'http://localhost:5500/javascript-carousel/images/004.png', 'http://localhost:5500/javascript-carousel/images/007.png', 'http://localhost:5500/javascript-carousel/images/025.png', 'http://localhost:5500/javascript-carousel/images/039.png'];
 var chevronLeft = document.querySelector('#chevron-left');
 var chevronRight = document.querySelector('#chevron-right');
 var currentIndex = 0;
 
-buttonRow.addEventListener('click', function () {
-
-});
-
-buttonFirst.addEventListener('click', function () {
-  showIndex(0);
-});
-
-buttonSecond.addEventListener('click', function () {
-  showIndex(1);
-});
-
-buttonThird.addEventListener('click', function () {
-  showIndex(2);
-});
-
-buttonFourth.addEventListener('click', function () {
-  showIndex(3);
-});
-
-buttonFifth.addEventListener('click', function () {
-  showIndex(4);
+buttonRow.addEventListener('click', function (event) {
+  for (var i = 0; i < buttonAll.length; i++) {
+    if (buttonAll[i].getAttribute('id') === event.target.getAttribute('id')) {
+      buttonAll[i].setAttribute('class', 'black');
+      images.setAttribute('src', imagesArray[i]);
+      currentIndex = i;
+    } else {
+      buttonAll[i].setAttribute('class', 'color-none');
+    }
+  }
+  clearInterval(interval);
+  interval = setInterval(carousel, 3000);
 });
 
 function showIndex(newIndex) {
@@ -69,13 +54,13 @@ function showPreviousIndex() {
 }
 
 chevronLeft.addEventListener('click', function () {
-  var previous = showPreviousIndex();
-  showIndex(previous);
+  chevronLeft.setAttribute('data-image-index', showPreviousIndex());
+  showIndex(parseInt(chevronLeft.getAttribute('data-image-index')));
 });
 
 chevronRight.addEventListener('click', function () {
-  var next = showNextIndex();
-  showIndex(next);
+  chevronRight.setAttribute('data-image-index', showNextIndex());
+  showIndex(parseInt(chevronRight.getAttribute('data-image-index')));
 });
 
 function carousel() {
