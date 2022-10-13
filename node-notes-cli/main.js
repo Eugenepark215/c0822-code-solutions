@@ -7,7 +7,9 @@ if (process.argv[2] === 'read') {
       console.error(err);
       process.exit(1);
     }
-    console.log(data);
+    for (const x in entry.notes) {
+      console.log(x + ': ' + entry.notes[x]);
+    }
   });
 } else if (process.argv[2] === 'create') {
   entry.notes[entry.nextId] = process.argv[3];
@@ -27,7 +29,6 @@ if (process.argv[2] === 'read') {
     }
   });
 } else if (process.argv[2] === 'delete') {
-  entry.nextId--;
   delete entry.notes[process.argv[3]];
   fs.writeFile('data.json', JSON.stringify(entry, null, 2), err => {
     if (err) {
