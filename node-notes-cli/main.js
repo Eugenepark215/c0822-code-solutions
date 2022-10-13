@@ -1,5 +1,5 @@
 const fs = require('fs');
-// const data = require('./data.json');
+// const entry = require('./data.json');
 
 if (process.argv[2] === 'read') {
   fs.readFile('data.json', 'utf8', (err, data) => {
@@ -17,3 +17,6 @@ if (process.argv[2] === 'read') {
     }
   });
 }
+
+// parse then add entry
+// push back by writefile and stringify
