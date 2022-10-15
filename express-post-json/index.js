@@ -18,9 +18,8 @@ app.post('/api/grades', (req, res) => {
   grades[nextId] = req.body;
   grades[nextId].id = nextId;
   nextId++;
-  res.status(201).json(grades[nextId]);
+  res.status(201).json(req.body);
 });
-
 app.listen(3000, () => {
   // eslint-disable-next-line no-console
   console.log('Express server 3000 is listening!');
