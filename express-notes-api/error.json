@@ -1,8 +1,14 @@
 {
-  "400": {
+  "positiveInteger": {
     "error": "id must be a positive integer"
   },
-  "404": {
+  "cannotFindId": {
     "error": "cannot find note with id"
+  },
+    "contentRequired": {
+      "error": "content is a required field"
+  },
+  "unexpectedError": {
+    "error": "An unexpected error occured"
   }
 }
