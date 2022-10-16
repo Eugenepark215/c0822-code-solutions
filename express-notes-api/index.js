@@ -64,6 +64,27 @@ app.delete('/api/notes/:id', (req, res) => {
   }
 });
 
+app.put('/api/notes/:id', (req, res) => {
+  if (req.body.content === undefined) {
+    res.status(400).json(error.contentRequired);
+  } else if (parseInt(req.params.id) > 0 && dataJSON.notes[req.params.id] === undefined) {
+    error.cannotFindId = { error: 'cannot find note with id ' + req.params.id };
+    res.status(404).json(error.cannotFindId);
+  } else if (parseInt(req.params.id) < 0 || isNaN(parseInt(req.params.id))) {
+    res.status(400).json(error.positiveInteger);
+  } else if (parseInt(req.params.id) > 0 && dataJSON.notes[req.params.id] !== undefined) {
+    dataJSON.notes[req.params.id].content = req.body.content;
+    fs.writeFile('data.json', JSON.stringify(dataJSON, null, 2), err => {
+      if (err) {
+        console.error(err);
+        res.status(500).json(error.unexpectedError);
+        process.exit(1);
+      }
+      res.status(200).json(dataJSON.notes[req.params.id]);
+    });
+  }
+});
+
 app.listen(3000, () => {
   // eslint-disable-next-line no-console
   console.log('Express server 3000 is listening!');
