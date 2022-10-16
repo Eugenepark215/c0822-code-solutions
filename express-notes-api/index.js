@@ -37,13 +37,11 @@ app.post('/api/notes', (req, res) => {
     fs.writeFile('data.json', JSON.stringify(dataJSON, null, 2), err => {
       if (err) {
         console.error(err);
+        res.status(500).json(error.unexpectedError);
         process.exit(1);
       }
       res.status(201).json(req.body);
     });
-  } else {
-    console.error(error.unexpectedError);
-    res.sendStatus(500);
   }
 });
 
@@ -58,13 +56,11 @@ app.delete('/api/notes/:id', (req, res) => {
     fs.writeFile('data.json', JSON.stringify(dataJSON, null, 2), err => {
       if (err) {
         console.error(err);
+        res.status(500).json(error.unexpectedError);
         process.exit(1);
       }
       res.sendStatus(204);
     });
-  } else {
-    console.error(error.unexpectedError);
-    res.sendStatus(500);
   }
 });
 
