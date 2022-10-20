@@ -27,8 +27,8 @@ console.log(haveD);
 function filter(array, predicate) {
   var copyArray = [];
   for (var i = 0; i < array.length; i++) {
-    if (predicate(i) === true) {
-      copyArray.push(i);
+    if (predicate(array[i])) {
+      copyArray.push(array[i]);
     }
   }
   return copyArray;
@@ -41,3 +41,27 @@ function predicateEven(i) {
 }
 
 console.log(filter(numbers, predicateEven));
+
+function predicateOverFive(i) {
+  if (i > 5) {
+    return true;
+  }
+}
+
+console.log(filter(numbers, predicateOverFive));
+
+function predicateStartWithE(i) {
+  if (i[0] === 'E') {
+    return true;
+  }
+}
+
+console.log(filter(names, predicateStartWithE));
+
+function predicateHaveD(i) {
+  if (i.includes('D') || i.includes('d')) {
+    return true;
+  }
+}
+
+console.log(filter(names, predicateHaveD));
