@@ -22,7 +22,7 @@ export default class ToggleSwitch extends React.Component {
         <div className='background-off'>
           <button onClick={(this.handleClick)}></button>
         </div>
-        <p className='on'>OFF</p>
+        <p>OFF</p>
       </div>
       );
     }
@@ -31,7 +31,7 @@ export default class ToggleSwitch extends React.Component {
         <div className='background-on'>
           <button onClick={(this.handleClick)}></button>
         </div>
-        <p className='off'>ON</p>
+        <p>ON</p>
       </div>
     );
   }
