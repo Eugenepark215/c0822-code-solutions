@@ -1,0 +1,35 @@
+.three-clicks {
+  background-color: blueviolet;
+  color: white;
+}
+
+.six-clicks {
+  background-color: purple;
+  color: white;
+}
+
+.nine-clicks {
+  background-color: red;
+  color: white;
+}
+
+.twelve-clicks {
+  background-color: orange;
+  color: black;
+}
+
+.fifteen-clicks {
+  background-color: yellow;
+  color: black;
+}
+
+.eighteen-clicks {
+  background-color: white;
+  color: black;
+}
+
+button {
+  width: 10rem;
+  height: 5rem;
+  font-size: x-large;
+}
