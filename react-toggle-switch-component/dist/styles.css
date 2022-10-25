@@ -1,0 +1,27 @@
+.background-on {
+  display: flex;
+  background-color: green;
+  width: 10rem;
+  border-radius: 25px;
+  flex-direction: row-reverse;
+}
+
+.background-off {
+  display: flex;
+  background-color: lightgray;
+  width: 10rem;
+  border-radius: 25px;
+}
+
+.container {
+  display: flex;
+}
+
+button {
+  width: 3rem;
+  border-radius: 50%;
+}
+
+p {
+  margin-left: 1%;
+}
