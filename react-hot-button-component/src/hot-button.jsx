@@ -8,7 +8,7 @@ export default class CustomButton extends React.Component {
   }
 
   handleClick() {
-    this.setState(HotButton);
+    this.setState({ isClicked: this.state.isClicked + 1 });
   }
 
   render() {
@@ -26,8 +26,4 @@ export default class CustomButton extends React.Component {
       return <button className='eighteen-clicks' onClick={(this.handleClick)}>HOT!</button>;
     }
   }
-}
-
-function HotButton(props) {
-  return props.isClicked++;
 }
