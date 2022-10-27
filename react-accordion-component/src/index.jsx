@@ -8,8 +8,10 @@ const languages = [
 ];
 const languageTopics = (
   <ul>
-    {languages.map(language =>
-      <li key={languages.topic}>{languages.topic}</li>
+    {languages.map(languages =>
+      <li className ='topic' key={languages.topic}>{languages.topic}
+        <li className='details'>{languages.details}</li>
+      </li>
     )}
   </ul>
 );

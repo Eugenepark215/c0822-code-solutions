@@ -1,0 +1,12 @@
+ul {
+  list-style: none;
+  width: 20rem;
+}
+
+.topic {
+  background-color: gray;
+}
+
+.details {
+  background-color: green;
+}
