@@ -3,6 +3,10 @@ ul {
   width: 20rem;
 }
 
+li {
+  border: solid 1px;
+}
+
 .topic {
   background-color: gray;
 }
