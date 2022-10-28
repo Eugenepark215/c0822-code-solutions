@@ -1,6 +1,6 @@
 ul {
   list-style: none;
-  width: 20rem;
+  width: 50rem;
 }
 
 li {
@@ -9,8 +9,14 @@ li {
 
 .topic {
   background-color: gray;
+  font-size: xx-large;
 }
 
 .details {
   background-color: green;
+  font-size: large;
+}
+
+.hidden {
+  display: none;
 }
