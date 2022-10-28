@@ -97,7 +97,7 @@ export default class App extends React.Component {
       .then(data => {
         const copy = this.state.todos;
         copy.splice(index, 1, data);
-        this.setState({ copy });
+        this.setState({ todos: copy });
       });
   }
 
