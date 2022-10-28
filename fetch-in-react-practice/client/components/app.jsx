@@ -46,7 +46,7 @@ export default class App extends React.Component {
     fetch('/api/todos', { method: 'POST', headers: myHeaders, body: JSON.stringify(newTodo) })
       .then(res => res.json())
       .then(data => {
-        const copy = this.state.todos;
+        const copy = this.state.todos.slice();
         const newArray = copy.concat(data);
         this.setState({ todos: newArray });
       });
@@ -95,7 +95,7 @@ export default class App extends React.Component {
     fetch(`api/todos/${todoId}`, { method: 'PATCH', headers: myHeaders, body: JSON.stringify(update) })
       .then(res => res.json())
       .then(data => {
-        const copy = this.state.todos;
+        const copy = this.state.todos.slice();
         copy.splice(index, 1, data);
         this.setState({ todos: copy });
       });
