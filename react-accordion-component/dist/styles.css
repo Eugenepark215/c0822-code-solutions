@@ -1,10 +1,7 @@
-ul {
-  list-style: none;
-  width: 50rem;
-}
-
 li {
   border: solid 1px;
+  list-style: none;
+  width: 50rem;
 }
 
 .topic {

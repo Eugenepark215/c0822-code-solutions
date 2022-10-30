@@ -25,23 +25,14 @@ export default class Accordian extends React.Component {
     ];
     if (!this.state.isClicked) {
       return (
-  <ul>
-    {languages.map(languages =>
-      <li className ='topic' key={languages.topic} onClick={this.handleClick}>{languages.topic}
-      </li>
-    )}
-  </ul>);
-    } else if (this.state.isClicked) {
-      return (
-  <ul>
-    {languages.map(languages =>
-      <li className ='topic' key={languages.topic} onClick={this.handleClick}>{languages.topic}
-        <li className='details' onClick={this.handleClick}>{languages.details}</li>
-      </li>
-    )}
-  </ul>);
+  <>{languages.map((languages, i) => (
+    <div key={i}>
+    <div className ='topic' key={languages.topic} onClick={this.handleClick}>{languages.topic}</div>
+    <div className='details' key={languages.details}>{languages.details}</div>
+    </div>
+  ))}
+  </>
+      );
     }
   }
 }
-
-// need to target the key
