@@ -18,18 +18,13 @@ export default class Accordian extends React.Component {
   }
 
   render() {
-    const languages = [
-      { topic: 'Hypertext Markup Language', details: 'Hypertext Markup Language (HTML)' },
-      { topic: 'Cascading Style Sheets', details: 'Cascading Style Sheets (CSS)' },
-      { topic: 'JavaScript', details: 'JavaScript, often abbreviated as JS,' }
-    ];
     if (!this.state.isClicked) {
       return (
-  <>{languages.map((languages, i) => (
-    <div key={i}>
-    <div className ='topic' key={languages.topic} onClick={this.handleClick}>{languages.topic}</div>
-    <div className='details' key={languages.details}>{languages.details}</div>
-    </div>
+  <>{this.props.map(prop => (
+    <>
+    <div className ='topic' key={prop.topic} onClick={this.handleClick}>{prop.topic}</div>
+    <div className='details' key={prop.details}>{prop.details}</div>
+    </>
   ))}
   </>
       );
