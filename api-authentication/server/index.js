@@ -52,12 +52,13 @@ app.post('/api/auth/sign-in', (req, res, next) => {
   const sql = `
 select
 "userId",
-"hashedPassword"
+"hashedPassword",
+"username"
 from "users"
 `;
   db.query(sql)
     .then(result => {
-      if (!username) {
+      if (result.rows[0].username !== req.body.username) {
         throw new ClientError(401, 'invalid login');
       }
       argon2
@@ -68,13 +69,14 @@ from "users"
           }
           const user = {
             userId: result.rows[0].userId,
-            username: req.body.username
+            username: result.rows[0].username
           };
-          const token = jwt.sign(user, 'swag');
+          const token = jwt.sign(user, process.env.TOKEN_SECRET);
           res.status(200).json({ token, user });
         })
         .catch(err => next(err));
-    });
+    })
+    .catch(err => next(err));
   /**
    * Query the database to find the "userId" and "hashedPassword" for the "username".
    * Then, 😉
