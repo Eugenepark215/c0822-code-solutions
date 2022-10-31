@@ -75,7 +75,7 @@ where "username" = $1
             username
           };
           const token = jwt.sign(payload, process.env.TOKEN_SECRET);
-          res.status(200).json({ token, payload });
+          res.json({ token, user: payload });
         })
         .catch(err => next(err));
     })
