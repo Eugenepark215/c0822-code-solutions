@@ -5,29 +5,30 @@ export default class Accordian extends React.Component {
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.state = {
-      isClicked: false
+      lang: ''
     };
   }
 
-  handleClick() {
-    if (!this.state.isClicked) {
-      this.setState({ isClicked: true });
-    } else if (this.state.isClicked) {
-      this.setState({ isClicked: false });
+  handleClick(event) {
+    if (event.target.textContent !== this.state.lang) {
+      this.setState({ lang: event.target.textContent });
+    } else {
+      this.setState({ lang: '' });
     }
   }
 
   render() {
-    if (!this.state.isClicked) {
+    return (
+  <div>
+    {this.props.languages.map(prop => {
+      const something = prop.topic === this.state.lang ? '' : 'hidden';
       return (
-  <>{this.props.map(prop => (
-    <>
-    <div className ='topic' key={prop.topic} onClick={this.handleClick}>{prop.topic}</div>
-    <div className='details' key={prop.details}>{prop.details}</div>
-    </>
-  ))}
-  </>
-      );
-    }
+      <div key={prop.topic}>
+        <div className ='topic' onClick={this.handleClick}>{prop.topic}</div>
+        <div className= {`details ${something}`}>{prop.details}</div>
+      </div>);
+    })}
+  </div>
+    );
   }
 }
