@@ -1,0 +1,62 @@
+Setup - Back End:
+A database is created with the command "createdb reactContent".
+The database schema and data provided in the database directory are imported into
+the database through the functionality of running the script "db:import".
+A connection is made with the server using "pgweb"
+
+
+Setup - Front End:
+A connection is made with the server through the functionality running the script "dev".
+Within index.html the react elements are rendered at the '#root' HTML element from the
+components within client/components.
+Those components are imported into the appropriate components within the pages directory.
+Then those components within the page directory are imported into app.jsx and then
+the app.jsx is imported to index.jsx where the rendering of the HTML element takes place.
+
+User can sign up:
+Once the client establishes a successful connection, the server responds with a render,
+which the functionality takes place within in clients/index.jsx.
+A render of the React element of the class component: App takes place within the render of index.jsx.
+Within the app.jsx component the this.props will be constructed and the this.state will be established
+and given these values the response will return a render.
+Immediately after the render the componentDidMount within the app.jsx will be called.
+The componentDidMount will listen for the clients hashchange and assign the this.state.route
+the window.locations.hash whenever the hashchanges. A const variable token will be made however the
+user will receive a token with a value of null due to the ternary operation.
+This.state.user will be se to null, and the this.state.isAuthorizing will be set to false.
+Once the componentDidMount is performed, app will render again by returning the React elements
+compromising of the Navbar and the PageContainer.
+The child of PageContainer calls renderPage() and based on the current this.state.route of ‘sign-in’,
+the React Element AuthPage will be rendered.
+The client can click on the anchor element “Sign Up” in the NavBar or “Register now” in the AuthForm
+which will change the hash and render the correlating AuthForm and Navbar.
+Once the client’s hash is ‘#sign-up’ the AuthForm has handleChange that will set this.state.username
+and this.state.password to the values inputted.
+Once the register button is submitted, a handleSubmit is called which is prevented and instead makes
+a POST request to the database and the username and password is stored in the database.
+Then hash changes to sign in.
+
+User can sign in:
+Once the client is redirected to the hash changes to signin after registering a username and
+password a new render takes place and the AuthPage for sign ins are rendered.
+Within the AuthPage the AuthForm is rendered again.
+Like the sing up there are handleChange that set the state with the username and password values.
+Once the client enters a correlating username and password and click the submit,
+unlike the sign up the handleSubmit performs a conditional statement that calls this.props.onSignIn(result).
+This is possible as the handleSignIn runs in the App.jsx as the handleSignIn is carried over
+from the createContext from the AppContext.
+Once the handleSignIn is triggered the hash is changed to “”, therefore rendering again.
+The render returns the Navbar , PageContainer and calls the renderPage().
+Since the hash is now: “” the React Element Home is rendered.
+
+User can stay signed in:
+When the handleSign in was called a token was set within the localStorage of the window when the code
+“window.localStorage.setItem('react-context-jwt', token); was run as well as set the state of user as a truthy value.
+So when the Home react element is rendered not only does it bypass the conditional statement if (!this.context.user)
+return <Redirect to="sign-in" />; it renders the home page.
+Due to the fact that handleSignIn utilizes local storage is the reason why a user is signed in even when the page is refreshed.
+
+User can sign out:
+When the client clicks on the signout button, the handleSignOut is triggered.
+The handleSignOut removes the token placed by the handleSignIn and sets this.state.user to null.
+This triggers the conditional to within Home to return the Redirect react element that changes the hash to sign in therefore rendering the sign in
