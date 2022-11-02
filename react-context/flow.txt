@@ -20,34 +20,37 @@ A render of the React element of the class component: App takes place within the
 Within the app.jsx component the this.props will be constructed and the this.state will be established
 and given these values the response will return a render.
 Immediately after the render the componentDidMount within the app.jsx will be called.
-The componentDidMount will listen for the clients hashchange and assign the this.state.route
-the window.locations.hash whenever the hashchanges. A const variable token will be made however the
-user will receive a token with a value of null due to the ternary operation.
-This.state.user will be se to null, and the this.state.isAuthorizing will be set to false.
-Once the componentDidMount is performed, app will render again by returning the React elements
-compromising of the Navbar and the PageContainer.
+The componentDidMount will listen for the clients hashchange and assign the this.state.route the window.locations.hash
+whenever the hashchanges. A const variable token will be made however the user will receive a token with a value of null
+due to the ternary operation. This.state.user will be se to null, and the this.state.isAuthorizing will be set to false.
+Once the componentDidMount is performed, app will render again by returning the React elements compromising of the Navbar and the PageContainer.
 The child of PageContainer calls renderPage() and based on the current this.state.route of ‘sign-in’,
-the React Element AuthPage will be rendered.
-The client can click on the anchor element “Sign Up” in the NavBar or “Register now” in the AuthForm
-which will change the hash and render the correlating AuthForm and Navbar.
+the React Element AuthPage will be rendered. The client can click on the anchor element
+“Sign Up” in the NavBar or “Register now” in the AuthForm which will change the hash and render the
+correlating AuthForm and Navbar.
 Once the client’s hash is ‘#sign-up’ the AuthForm has handleChange that will set this.state.username
 and this.state.password to the values inputted.
-Once the register button is submitted, a handleSubmit is called which is prevented and instead makes
-a POST request to the database and the username and password is stored in the database.
-Then hash changes to sign in.
+Once the register button is submitted, a handleSubmit is called which is prevented and instead makes a POST request
+to the database and within server/index.js the code: app.post('/api/auth/sign-up', (req, res, next) => {...) is called.
+Given the password, it is hashed through argon2 and it is saved onto the database with the given username through db.query().
+Then the hash changes to sign in thus rendering again but with the Signin for the AuthForm
+
 
 User can sign in:
-Once the client is redirected to the hash changes to signin after registering a username and
-password a new render takes place and the AuthPage for sign ins are rendered.
-Within the AuthPage the AuthForm is rendered again.
-Like the sing up there are handleChange that set the state with the username and password values.
+Once the client is redirected to the hash changes to signin after registering a username and password
+a new render takes place and the AuthPage for sign ins are rendered. Within the AuthPage the AuthForm is rendered again.
+Like the signup there are handleChange that set the state with the username and password values.
 Once the client enters a correlating username and password and click the submit,
 unlike the sign up the handleSubmit performs a conditional statement that calls this.props.onSignIn(result).
-This is possible as the handleSignIn runs in the App.jsx as the handleSignIn is carried over
-from the createContext from the AppContext.
+Also when the submit is clicked the server/index.js runs again but this time:
+app.post('/api/auth/sign-in', (req, res, next) => {...}, which returns the matching username and password from the
+database as the handleChange values through sql code and db.query.
+If the http request is successful with the conditionals met, a token is created for the correlating username and passwords.
+Then as the handleSignIn runs in the App.jsx as the handleSignIn is carried over from the createContext from the AppContext.
 Once the handleSignIn is triggered the hash is changed to “”, therefore rendering again.
 The render returns the Navbar , PageContainer and calls the renderPage().
 Since the hash is now: “” the React Element Home is rendered.
+
 
 User can stay signed in:
 When the handleSign in was called a token was set within the localStorage of the window when the code
