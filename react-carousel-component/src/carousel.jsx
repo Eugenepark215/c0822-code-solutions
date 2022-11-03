@@ -21,18 +21,22 @@ export default class Carousel extends React.Component {
     }, 3000);
   }
 
-  handleClick(event) {
-    if (event.target.matches('button')) {
-      const newIndex = Number(event.target.getAttribute('id'));
-      this.setState({ index: newIndex });
-    }
-    clearInterval(this.interval);
+  autoPlay() {
     this.interval = setInterval(() => {
       this.setState({ index: this.state.index + 1 });
       if (this.state.index === 7) {
         this.setState({ index: 0 });
       }
     }, 3000);
+  }
+
+  handleClick(event) {
+    if (event.target.matches('button')) {
+      const newIndex = Number(event.target.getAttribute('id'));
+      this.setState({ index: newIndex });
+    }
+    clearInterval(this.interval);
+    this.autoPlay();
   }
 
   chevronClickRight(event) {
@@ -42,12 +46,7 @@ export default class Carousel extends React.Component {
       this.setState({ index: this.state.index + 1 });
     }
     clearInterval(this.interval);
-    this.interval = setInterval(() => {
-      this.setState({ index: this.state.index + 1 });
-      if (this.state.index === 7) {
-        this.setState({ index: 0 });
-      }
-    }, 3000);
+    this.autoPlay();
   }
 
   chevronClickLeft(event) {
@@ -57,12 +56,7 @@ export default class Carousel extends React.Component {
       this.setState({ index: this.state.index - 1 });
     }
     clearInterval(this.interval);
-    this.interval = setInterval(() => {
-      this.setState({ index: this.state.index + 1 });
-      if (this.state.index === 7) {
-        this.setState({ index: 0 });
-      }
-    }, 3000);
+    this.autoPlay();
   }
 
   render() {
