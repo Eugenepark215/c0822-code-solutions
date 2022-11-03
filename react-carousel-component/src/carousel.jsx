@@ -8,57 +8,61 @@ export default class Carousel extends React.Component {
     this.chevronClickRight = this.chevronClickRight.bind(this);
     this.chevronClickLeft = this.chevronClickLeft.bind(this);
     this.state = {
-      index: 0,
-      current: imagesArray[0]
+      index: 0
     };
   }
 
   componentDidMount() {
-    this.interval = this.autoPlay();
-  }
-
-  autoPlay() {
     this.interval = setInterval(() => {
-      this.setState({ index: this.state.index + 1, current: imagesArray[this.state.index + 1] });
+      this.setState({ index: this.state.index + 1 });
       if (this.state.index === 7) {
-        this.setState({ index: 0, current: imagesArray[0] });
+        this.setState({ index: 0 });
       }
     }, 3000);
   }
 
   handleClick(event) {
-    if (event.target.getAttribute('id') !== this.state.current) {
-      this.setState({ current: event.target.getAttribute('id') });
-      for (let i = 0; i < imagesArray.length; i++) {
-        if (event.target.getAttribute('id') === imagesArray[i]) {
-          this.setState({ index: i });
-        }
-      }
+    if (event.target.matches('button')) {
+      const newIndex = Number(event.target.getAttribute('id'));
+      this.setState({ index: newIndex });
     }
-    clearInterval(this.interval());
-    this.interval();
+    clearInterval(this.interval);
+    this.interval = setInterval(() => {
+      this.setState({ index: this.state.index + 1 });
+      if (this.state.index === 7) {
+        this.setState({ index: 0 });
+      }
+    }, 3000);
   }
 
   chevronClickRight(event) {
-    if (this.state.current === 'images/816.png') {
-      this.setState({ current: 'images/007.png' });
+    if (this.state.index === imagesArray.indexOf('images/816.png')) {
       this.setState({ index: 0 });
     } else {
-      this.setState({ index: this.state.index + 1, current: imagesArray[this.state.index + 1] });
+      this.setState({ index: this.state.index + 1 });
     }
-    clearInterval(this.interval());
-    this.interval();
+    clearInterval(this.interval);
+    this.interval = setInterval(() => {
+      this.setState({ index: this.state.index + 1 });
+      if (this.state.index === 7) {
+        this.setState({ index: 0 });
+      }
+    }, 3000);
   }
 
   chevronClickLeft(event) {
-    if (this.state.current === 'images/007.png') {
-      this.setState({ current: 'images/816.png' });
+    if (this.state.index === imagesArray.indexOf('images/007.png')) {
       this.setState({ index: 7 });
     } else {
-      this.setState({ index: this.state.index - 1, current: imagesArray[this.state.index - 1] });
+      this.setState({ index: this.state.index - 1 });
     }
-    clearInterval(this.interval());
-    this.interval();
+    clearInterval(this.interval);
+    this.interval = setInterval(() => {
+      this.setState({ index: this.state.index + 1 });
+      if (this.state.index === 7) {
+        this.setState({ index: 0 });
+      }
+    }, 3000);
   }
 
   render() {
@@ -69,9 +73,9 @@ export default class Carousel extends React.Component {
             <i id="chevron-left" className="fa-solid fa-chevron-left fa-2xl" onClick={this.chevronClickLeft}></i>
           </div>
           <div className='column-one-third'>
-            {imagesArray.map((image, index) => {
-              const something = image === this.state.current ? '' : 'hidden';
-              return (<img key={index} className={`${something}`} src={image}></img>);
+            {imagesArray.map(image => {
+              const something = imagesArray.indexOf(image) === this.state.index ? '' : 'hidden';
+              return (<img key={image} className={`${something}`} src={image}></img>);
             })}
           </div>
           <div className='column-one-third'>
@@ -80,10 +84,10 @@ export default class Carousel extends React.Component {
         </div>
         <div className='row justify-center space-between'>
           {imagesArray.map((image, index) => {
-            const something = image === this.state.current ? 'black' : 'color-none';
+            const something = imagesArray.indexOf(image) === this.state.index ? 'black' : 'color-none';
             return (
-                <div className='column' key={index}>
-                  <button key={index} id={image} className={`${something}`} onClick={this.handleClick}></button>
+                <div className='column' key={image}>
+                  <button id={index} className={`${something}`} onClick={this.handleClick}></button>
                 </div>
             );
           })}
