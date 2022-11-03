@@ -13,6 +13,19 @@ export default class Carousel extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.interval = this.autoPlay();
+  }
+
+  autoPlay() {
+    this.interval = setInterval(() => {
+      this.setState({ index: this.state.index + 1, current: imagesArray[this.state.index + 1] });
+      if (this.state.index === 7) {
+        this.setState({ index: 0, current: imagesArray[0] });
+      }
+    }, 3000);
+  }
+
   handleClick(event) {
     if (event.target.getAttribute('id') !== this.state.current) {
       this.setState({ current: event.target.getAttribute('id') });
@@ -22,6 +35,8 @@ export default class Carousel extends React.Component {
         }
       }
     }
+    clearInterval(this.interval());
+    this.interval();
   }
 
   chevronClickRight(event) {
@@ -31,6 +46,8 @@ export default class Carousel extends React.Component {
     } else {
       this.setState({ index: this.state.index + 1, current: imagesArray[this.state.index + 1] });
     }
+    clearInterval(this.interval());
+    this.interval();
   }
 
   chevronClickLeft(event) {
@@ -40,12 +57,11 @@ export default class Carousel extends React.Component {
     } else {
       this.setState({ index: this.state.index - 1, current: imagesArray[this.state.index - 1] });
     }
+    clearInterval(this.interval());
+    this.interval();
   }
 
   render() {
-    // this.interval = setInterval(() => {
-    //   this.setState({ count: this.state.count + 1 });
-    // }, 1000);
     return (
       <div className='container'>
         <div className='row'>
