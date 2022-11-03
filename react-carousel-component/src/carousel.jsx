@@ -37,30 +37,14 @@ export default class Carousel extends React.Component {
           </div>
         </div>
         <div className='row justify-center space-between'>
-          <div className='column'>
-            <button className='first' id="images/007.png"></button>
-          </div>
-          <div className='column'>
-            <button id="images/158.png" onClick={this.handleClick}></button>
-          </div>
-          <div className='column'>
-            <button id="images/258.png" onClick={this.handleClick}></button>
-          </div>
-          <div className='column'>
-            <button id="images/393.png" onClick={this.handleClick}></button>
-          </div>
-          <div className='column'>
-            <button id="images/501.png" onClick={this.handleClick}></button>
-          </div>
-          <div className='column'>
-            <button id="images/656.png" onClick={this.handleClick}></button>
-          </div>
-          <div className='column'>
-            <button id="images/728.png" onClick={this.handleClick}></button>
-          </div>
-          <div className='column'>
-            <button id="images/816.png" onClick={this.handleClick}></button>
-          </div>
+          {imagesArray.map(image => {
+            const something = image === this.state.count ? 'black' : 'color-none';
+            return (
+                <div className='column' key={image}>
+                  <button id={image} className={`${something}`} onClick={this.handleClick}></button>
+                </div>
+            );
+          })}
         </div>
       </div>
     );
