@@ -16,6 +16,11 @@ export default class Carousel extends React.Component {
   handleClick(event) {
     if (event.target.getAttribute('id') !== this.state.current) {
       this.setState({ current: event.target.getAttribute('id') });
+      for (let i = 0; i < imagesArray.length; i++) {
+        if (event.target.getAttribute('id') === imagesArray[i]) {
+          this.setState({ index: i });
+        }
+      }
     }
   }
 
@@ -48,9 +53,9 @@ export default class Carousel extends React.Component {
             <i id="chevron-left" className="fa-solid fa-chevron-left fa-2xl" onClick={this.chevronClickLeft}></i>
           </div>
           <div className='column-one-third'>
-            {imagesArray.map(image => {
+            {imagesArray.map((image, index) => {
               const something = image === this.state.current ? '' : 'hidden';
-              return (<img key={image} className={`${something}`} src={image}></img>);
+              return (<img key={index} className={`${something}`} src={image}></img>);
             })}
           </div>
           <div className='column-one-third'>
@@ -58,11 +63,11 @@ export default class Carousel extends React.Component {
           </div>
         </div>
         <div className='row justify-center space-between'>
-          {imagesArray.map(image => {
+          {imagesArray.map((image, index) => {
             const something = image === this.state.current ? 'black' : 'color-none';
             return (
-                <div className='column' key={image}>
-                  <button id={image} className={`${something}`} onClick={this.handleClick}></button>
+                <div className='column' key={index}>
+                  <button key={index} id={image} className={`${something}`} onClick={this.handleClick}></button>
                 </div>
             );
           })}
