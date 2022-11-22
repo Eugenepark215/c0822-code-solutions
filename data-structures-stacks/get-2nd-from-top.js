@@ -1,22 +1,18 @@
 /* exported get2ndFromTop */
 
 function get2ndFromTop(stack) {
-  const something = [];
   if (stack.peek() === undefined) {
     return undefined;
   } else {
-    while (stack.peek() !== undefined) {
-      something.push(stack.pop());
-    }
-    if (something.length === 1) {
-      stack.push(something[0]);
+    const pop = stack.pop();
+    if (stack.peek() === undefined) {
+      stack.push(pop);
       return undefined;
     } else {
-      for (let i = something.length - 1; i >= 0; i--) {
-        stack.push(something[i]);
-      }
-      return something[1];
+      const pop2 = stack.pop();
+      stack.push(pop2);
+      stack.push(pop);
+      return pop2;
     }
-
   }
 }
