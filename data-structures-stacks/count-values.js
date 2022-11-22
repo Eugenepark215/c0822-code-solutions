@@ -1,13 +1,14 @@
 /* exported countValues */
 
 function countValues(stack) {
-  const something = [];
+  let number = 0;
   if (stack.peek() === undefined) {
-    return 0;
+    return number;
   } else {
     while (stack.peek() !== undefined) {
-      something.push(stack.pop());
+      stack.pop();
+      number++;
     }
-    return something.length;
+    return number;
   }
 }
