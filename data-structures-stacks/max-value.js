@@ -1,13 +1,20 @@
 /* exported maxValue */
 
 function maxValue(stack) {
-  const something = [];
+  let max = 0;
+  let pop = 0;
   if (stack.peek() === undefined) {
     return -Infinity;
   } else {
     while (stack.peek() !== undefined) {
-      something.push(stack.pop());
+      max = stack.peek();
+      pop = stack.pop();
+      if (pop > max) {
+        const max = pop;
+        return max;
+      } else if (stack.peek() < max) {
+        return max;
+      }
     }
-    return Math.max(...something);
   }
 }
