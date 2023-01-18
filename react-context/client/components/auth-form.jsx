@@ -1,30 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export default class AuthForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: '',
-      password: ''
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+export default function AuthForm(props) {
+  const [user, setUsername] = useState('');
+  const [pass, setPassword] = useState('');
+  const userPass = {
+    username: user,
+    password: pass
+  };
+
+  function handleChangeUsername(event) {
+    setUsername(event.target.value);
   }
 
-  handleChange(event) {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
+  function handleChangePassword(event) {
+    setPassword(event.target.value);
   }
 
-  handleSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault();
-    const { action } = this.props;
+    const { action } = props;
     const req = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(this.state)
+      body: JSON.stringify(userPass)
     };
     fetch(`/api/auth/${action}`, req)
       .then(res => res.json())
@@ -32,24 +32,21 @@ export default class AuthForm extends React.Component {
         if (action === 'sign-up') {
           window.location.hash = 'sign-in';
         } else if (result.user && result.token) {
-          this.props.onSignIn(result);
+          props.onSignIn(result);
         }
       });
   }
-
-  render() {
-    const { action } = this.props;
-    const { handleChange, handleSubmit } = this;
-    const alternateActionHref = action === 'sign-up'
-      ? '#sign-in'
-      : '#sign-up';
-    const alternatActionText = action === 'sign-up'
-      ? 'Sign in instead'
-      : 'Register now';
-    const submitButtonText = action === 'sign-up'
-      ? 'Register'
-      : 'Log In';
-    return (
+  const { action } = props;
+  const alternateActionHref = action === 'sign-up'
+    ? '#sign-in'
+    : '#sign-up';
+  const alternatActionText = action === 'sign-up'
+    ? 'Sign in instead'
+    : 'Register now';
+  const submitButtonText = action === 'sign-up'
+    ? 'Register'
+    : 'Log In';
+  return (
       <form className="w-100" onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="username" className="form-label">
@@ -61,7 +58,7 @@ export default class AuthForm extends React.Component {
             id="username"
             type="text"
             name="username"
-            onChange={handleChange}
+            onChange={handleChangeUsername}
             className="form-control bg-light" />
         </div>
         <div className="mb-3">
@@ -73,7 +70,7 @@ export default class AuthForm extends React.Component {
             id="password"
             type="password"
             name="password"
-            onChange={handleChange}
+            onChange={handleChangePassword}
             className="form-control bg-light" />
         </div>
         <div className="d-flex justify-content-between align-items-center">
@@ -87,6 +84,5 @@ export default class AuthForm extends React.Component {
           </button>
         </div>
       </form>
-    );
-  }
+  );
 }
