@@ -32,5 +32,3 @@ export default function Navbar() {
       </nav>
   );
 }
-
-Navbar.contextType = AppContext;

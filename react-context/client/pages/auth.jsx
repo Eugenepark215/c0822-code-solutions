@@ -30,5 +30,3 @@ export default function AuthPage() {
       </div>
   );
 }
-
-AuthPage.contextType = AppContext;
