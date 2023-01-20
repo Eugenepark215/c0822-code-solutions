@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
+// import React from 'react';
 import AppContext from '../lib/app-context';
 
-export default function Navbar(context) {
-  const user = useContext(AppContext);
-  const handleSignOut = useContext(AppContext);
+export default function Navbar() {
+  const context = useContext(AppContext);
   return (
     <nav className="navbar navbar-dark bg-dark">
         <div className="container">
@@ -12,13 +12,13 @@ export default function Navbar(context) {
             Awesome App
           </a>
           <div>
-            { user !== null &&
-              <button className="btn btn-dark" onClick={handleSignOut}>
+            { context.user !== null &&
+              <button className="btn btn-dark" onClick={context.handleSignOut}>
                 Sign out
                 <i className="ms-2 fas fa-sign-out-alt" />
               </button>
             }
-            { user === null &&
+            { context.user === null &&
               <>
                 <a href="#sign-in" className="btn btn-primary">
                   Sign In
