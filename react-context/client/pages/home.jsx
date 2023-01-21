@@ -16,8 +16,9 @@ const styles = {
 
 export default function Home() {
   const context = useContext(AppContext);
-  if (!context.user) return <Redirect to="sign-in" />;
-
+  if (!context.user) {
+    return <Redirect to="sign-in" />;
+  }
   return (
       <div style={styles.gifContainer}>
         <iframe

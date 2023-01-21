@@ -19,7 +19,7 @@ export default function App() {
     });
     const token = window.localStorage.getItem('react-context-jwt');
     const user = token ? jwtDecode(token) : null;
-    setUser({ user });
+    setUser(user);
     setAuthorizing(false);
   }, []);
 
