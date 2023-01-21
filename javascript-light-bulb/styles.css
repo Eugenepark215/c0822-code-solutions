@@ -1,0 +1,39 @@
+.off {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  min-height: 100vh;
+  min-width: 100vw;
+  transition: 0.5s;
+}
+
+.on {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  min-height: 100vh;
+  min-width: 100vw;
+  transition: 0.5s;
+}
+
+button {
+  border-radius: 50%;
+  width: 500px;
+  height: 500px;
+  border: none;
+  transition: 0.5s;
+}
+
+.lightbulb-on {
+  background-color: yellow;
+  box-shadow: 5px 10px 50px 10px yellow;
+}
+
+.lightbulb-off {
+  background-color: rgb(37 37 37);
+  box-shadow: 5px 10px 50px 10px rgb(37 37 37);
+}

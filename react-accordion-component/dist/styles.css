@@ -1,0 +1,19 @@
+li {
+  border: solid 1px;
+  list-style: none;
+  width: 50rem;
+}
+
+.topic {
+  background-color: gray;
+  font-size: xx-large;
+}
+
+.details {
+  background-color: green;
+  font-size: large;
+}
+
+.hidden {
+  display: none;
+}

@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 10rem;
+}
+
+p {
+  color: red;
+  font-size: small;
+}
+
+.fa-xmark {
+  color: red;
+  align-self: center;
+  margin-bottom: 1%;
+}
+
+.fa-check {
+  color: green;
+  align-self: center;
+}
+
+.swag {
+  display: flex;
+}

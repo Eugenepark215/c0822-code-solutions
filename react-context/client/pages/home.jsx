@@ -28,5 +28,6 @@ export default function Home() {
           frameBorder="0"
           style={styles.gif} />
       </div>
+
   );
 }
