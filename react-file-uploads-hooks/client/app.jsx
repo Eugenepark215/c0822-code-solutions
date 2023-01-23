@@ -1,22 +1,83 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
+export const context = React.createRef();
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      caption: ''
-    };
-    this.fileInputRef = React.createRef();
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleCaptionChange = this.handleCaptionChange.bind(this);
+export default function App() {
+  const [caption, setCaption] = useState('');
+  const fileInputRef = useContext(context);
+
+  function handleCaptionChange(event) {
+    setCaption({ caption: event.target.value });
   }
 
-  handleCaptionChange(event) {
-    this.setState({ caption: event.target.value });
+  function handleSubmit(event, fileInputRef) {
+    event.preventDefault();
+    const newFormData = new FormData();
+    newFormData.append('caption', caption);
+    newFormData.append('image', fileInputRef.current.files[0]);
+    fetch('/api/uploads', { method: 'POST', body: newFormData })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        setCaption({ caption: '' });
+        fileInputRef.current.value = null;
+      })
+      .catch(err => console.error(err));
   }
+  return (
+    <div className="container">
+        <div className="row min-vh-100 pb-5 justify-content-center align-items-center">
+          <div className="col col-md-8">
+            <h3 className="text-center mb-5">React File Uploads</h3>
+            <form onSubmit={handleSubmit}>
+              <div className="mb-3">
+                <label htmlFor="username" className="form-label">
+                  Caption
+                </label>
+                <input
+                  required
+                  autoFocus
+                  type="text"
+                  id="caption"
+                  name="caption"
+                  value={caption.value}
+                  onChange={handleCaptionChange}
+                  className="form-control bg-light" />
+              </div>
+              <div className="d-flex justify-content-between align-items-center">
+                <input
+                  required
+                  type="file"
+                  name="image"
+                  ref={fileInputRef}
+                  accept=".png, .jpg, .jpeg, .gif" />
+                <button type="submit" className="btn btn-primary">
+                  Upload
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  );
+}
 
-  handleSubmit(event) {
-    /**
+// export default class App extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       caption: ''
+//     };
+//     this.fileInputRef = React.createRef();
+//     this.handleSubmit = this.handleSubmit.bind(this);
+//     this.handleCaptionChange = this.handleCaptionChange.bind(this);
+//   }
+
+//   handleCaptionChange(event) {
+//     this.setState({ caption: event.target.value });
+//   }
+
+//   handleSubmit(event) {
+/**
      * Prevent the browser's default behavior for form submissions.
      *
      * Create a `new` FormData object.
@@ -45,56 +106,56 @@ export default class App extends React.Component {
      * https://reactjs.org/docs/uncontrolled-components.html#the-file-input-tag
      * https://reactjs.org/docs/refs-and-the-dom.html
      */
-    event.preventDefault();
-    const newFormData = new FormData();
-    newFormData.append('caption', this.state.caption);
-    newFormData.append('image', this.fileInputRef.current.files[0]);
-    fetch('/api/uploads', { method: 'POST', body: newFormData })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        this.setState({ caption: '' });
-        this.fileInputRef.current.value = null;
-      })
-      .catch(err => console.error(err));
-  }
+//     event.preventDefault();
+//     const newFormData = new FormData();
+//     newFormData.append('caption', this.state.caption);
+//     newFormData.append('image', this.fileInputRef.current.files[0]);
+//     fetch('/api/uploads', { method: 'POST', body: newFormData })
+//       .then(res => res.json())
+//       .then(data => {
+//         console.log(data);
+//         this.setState({ caption: '' });
+//         this.fileInputRef.current.value = null;
+//       })
+//       .catch(err => console.error(err));
+//   }
 
-  render() {
-    return (
-      <div className="container">
-        <div className="row min-vh-100 pb-5 justify-content-center align-items-center">
-          <div className="col col-md-8">
-            <h3 className="text-center mb-5">React File Uploads</h3>
-            <form onSubmit={this.handleSubmit}>
-              <div className="mb-3">
-                <label htmlFor="username" className="form-label">
-                  Caption
-                </label>
-                <input
-                  required
-                  autoFocus
-                  type="text"
-                  id="caption"
-                  name="caption"
-                  value={this.state.caption}
-                  onChange={this.handleCaptionChange}
-                  className="form-control bg-light" />
-              </div>
-              <div className="d-flex justify-content-between align-items-center">
-                <input
-                  required
-                  type="file"
-                  name="image"
-                  ref={this.fileInputRef}
-                  accept=".png, .jpg, .jpeg, .gif" />
-                <button type="submit" className="btn btn-primary">
-                  Upload
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
+//   render() {
+//     return (
+//       <div className="container">
+//         <div className="row min-vh-100 pb-5 justify-content-center align-items-center">
+//           <div className="col col-md-8">
+//             <h3 className="text-center mb-5">React File Uploads</h3>
+//             <form onSubmit={this.handleSubmit}>
+//               <div className="mb-3">
+//                 <label htmlFor="username" className="form-label">
+//                   Caption
+//                 </label>
+//                 <input
+//                   required
+//                   autoFocus
+//                   type="text"
+//                   id="caption"
+//                   name="caption"
+//                   value={this.state.caption}
+//                   onChange={this.handleCaptionChange}
+//                   className="form-control bg-light" />
+//               </div>
+//               <div className="d-flex justify-content-between align-items-center">
+//                 <input
+//                   required
+//                   type="file"
+//                   name="image"
+//                   ref={this.fileInputRef}
+//                   accept=".png, .jpg, .jpeg, .gif" />
+//                 <button type="submit" className="btn btn-primary">
+//                   Upload
+//                 </button>
+//               </div>
+//             </form>
+//           </div>
+//         </div>
+//       </div>
+//     );
+//   }
+// }
