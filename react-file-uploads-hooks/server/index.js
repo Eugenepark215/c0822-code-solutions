@@ -38,7 +38,7 @@ app.post('/api/uploads', uploadsMiddleware, (req, res, next) => {
   const sql = `
   insert into "images" ("caption", "url")
   values ($1, $2)
-  returning caption",
+  returning "caption",
   "url"
   `;
   const params = [caption, newUrl];

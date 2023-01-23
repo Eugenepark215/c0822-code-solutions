@@ -1,28 +1,30 @@
-import React, { useState, useContext } from 'react';
-export const context = React.createRef();
+import React, { useState, useRef } from 'react';
+// import React from 'react';
 
 export default function App() {
   const [caption, setCaption] = useState('');
-  const fileInputRef = useContext(context);
+  const fileInputRef = useRef();
 
   function handleCaptionChange(event) {
     setCaption({ caption: event.target.value });
   }
 
-  function handleSubmit(event, fileInputRef) {
+  function handleSubmit(event) {
     event.preventDefault();
     const newFormData = new FormData();
-    newFormData.append('caption', caption);
+    newFormData.append('caption', caption.caption);
     newFormData.append('image', fileInputRef.current.files[0]);
     fetch('/api/uploads', { method: 'POST', body: newFormData })
       .then(res => res.json())
       .then(data => {
+        console.log(caption.caption);
         console.log(data);
-        setCaption({ caption: '' });
+        setCaption('');
         fileInputRef.current.value = null;
       })
       .catch(err => console.error(err));
   }
+
   return (
     <div className="container">
         <div className="row min-vh-100 pb-5 justify-content-center align-items-center">
