@@ -6,18 +6,17 @@ export default function App() {
   const fileInputRef = useRef();
 
   function handleCaptionChange(event) {
-    setCaption({ caption: event.target.value });
+    setCaption(event.target.value);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
     const newFormData = new FormData();
-    newFormData.append('caption', caption.caption);
+    newFormData.append('caption', caption);
     newFormData.append('image', fileInputRef.current.files[0]);
     fetch('/api/uploads', { method: 'POST', body: newFormData })
       .then(res => res.json())
       .then(data => {
-        console.log(caption.caption);
         console.log(data);
         setCaption('');
         fileInputRef.current.value = null;
